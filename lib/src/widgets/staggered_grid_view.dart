@@ -334,12 +334,14 @@ class StaggeredGridView extends BoxScrollView {
     this.addAutomaticKeepAlives = true,
     bool addRepaintBoundaries = true,
     String? restorationId,
+    int mainAxisOffsetsCacheSize = 3,
   })  : gridDelegate = SliverStaggeredGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: crossAxisCount,
           mainAxisSpacing: mainAxisSpacing,
           crossAxisSpacing: crossAxisSpacing,
           staggeredTileBuilder: staggeredTileBuilder,
           staggeredTileCount: itemCount,
+          mainAxisOffsetsCacheSize: mainAxisOffsetsCacheSize,
         ),
         childrenDelegate = SliverChildBuilderDelegate(
           itemBuilder,
@@ -397,12 +399,14 @@ class StaggeredGridView extends BoxScrollView {
     List<Widget> children = const <Widget>[],
     List<StaggeredTile> staggeredTiles = const <StaggeredTile>[],
     String? restorationId,
+    int mainAxisOffsetsCacheSize = 3,
   })  : gridDelegate = SliverStaggeredGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: maxCrossAxisExtent,
           mainAxisSpacing: mainAxisSpacing,
           crossAxisSpacing: crossAxisSpacing,
           staggeredTileBuilder: (i) => staggeredTiles[i],
           staggeredTileCount: staggeredTiles.length,
+          mainAxisOffsetsCacheSize: mainAxisOffsetsCacheSize,
         ),
         childrenDelegate = SliverChildListDelegate(
           children,

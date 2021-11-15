@@ -647,6 +647,7 @@ class SliverStaggeredGridDelegateWithFixedCrossAxisCount
     double mainAxisSpacing = 0,
     double crossAxisSpacing = 0,
     int? staggeredTileCount,
+    this.mainAxisOffsetsCacheSize = 3,
   })  : assert(crossAxisCount > 0),
         super(
           staggeredTileBuilder: staggeredTileBuilder,
@@ -657,6 +658,8 @@ class SliverStaggeredGridDelegateWithFixedCrossAxisCount
 
   /// The number of children in the cross axis.
   final int crossAxisCount;
+
+  final int mainAxisOffsetsCacheSize;
 
   @override
   bool _debugAssertIsValid() {
@@ -671,14 +674,15 @@ class SliverStaggeredGridDelegateWithFixedCrossAxisCount
         constraints.crossAxisExtent - crossAxisSpacing * (crossAxisCount - 1);
     final double cellExtent = usableCrossAxisExtent / crossAxisCount;
     return StaggeredGridConfiguration(
-      crossAxisCount: crossAxisCount,
-      staggeredTileBuilder: staggeredTileBuilder,
-      staggeredTileCount: staggeredTileCount,
-      cellExtent: cellExtent,
-      mainAxisSpacing: mainAxisSpacing,
-      crossAxisSpacing: crossAxisSpacing,
-      reverseCrossAxis: axisDirectionIsReversed(constraints.crossAxisDirection),
-    );
+        crossAxisCount: crossAxisCount,
+        staggeredTileBuilder: staggeredTileBuilder,
+        staggeredTileCount: staggeredTileCount,
+        cellExtent: cellExtent,
+        mainAxisSpacing: mainAxisSpacing,
+        crossAxisSpacing: crossAxisSpacing,
+        reverseCrossAxis:
+            axisDirectionIsReversed(constraints.crossAxisDirection),
+        mainAxisOffsetsCacheSize: mainAxisOffsetsCacheSize);
   }
 
   @override
@@ -727,6 +731,7 @@ class SliverStaggeredGridDelegateWithMaxCrossAxisExtent
     double mainAxisSpacing = 0,
     double crossAxisSpacing = 0,
     int? staggeredTileCount,
+    this.mainAxisOffsetsCacheSize = 3,
   })  : assert(maxCrossAxisExtent > 0),
         super(
           staggeredTileBuilder: staggeredTileBuilder,
@@ -747,6 +752,8 @@ class SliverStaggeredGridDelegateWithMaxCrossAxisExtent
   /// [maxCrossAxisExtent] is 150.0, this delegate will create a grid with 4
   /// columns that are 125.0 pixels wide.
   final double maxCrossAxisExtent;
+
+  final int mainAxisOffsetsCacheSize;
 
   @override
   bool _debugAssertIsValid() {
