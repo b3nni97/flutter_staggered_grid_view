@@ -3,9 +3,9 @@ import 'dart:collection';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_staggered_grid_view/src/rendering/sliver_staggered_grid.dart';
-import 'package:flutter_staggered_grid_view/src/rendering/sliver_variable_size_box_adaptor.dart';
-import 'package:flutter_staggered_grid_view/src/widgets/staggered_tile.dart';
+import 'package:flutter_custom_staggered_grid_view/src/rendering/sliver_staggered_grid.dart';
+import 'package:flutter_custom_staggered_grid_view/src/rendering/sliver_variable_size_box_adaptor.dart';
+import 'package:flutter_custom_staggered_grid_view/src/widgets/staggered_tile.dart';
 
 /// A base class for sliver that have multiple variable size box children.
 ///
